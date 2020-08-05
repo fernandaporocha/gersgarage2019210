@@ -1,0 +1,21 @@
+<div class="card">
+  <h5 class="card-header"> Update Booking Status </h5>
+  <div class="card-body">
+
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group row">
+        <label for="name" class="col-sm-2 col-form-label">Name</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="name" placeholder="Name" required [(ngModel)]="bookingStatus.name"
+            name="name">
+        </div>
+      </div>
+
+      <div class="form-group ml-auto">
+        <div class="text-right">
+          <button type="submit" class=" btn btn-success">Submit</button>
+        </div>
+      </div>
+
+    </form>
+  </div>
