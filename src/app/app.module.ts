@@ -3,8 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';  
-import { HttpClientModule } from '@angular/common/http';  
-import { DataTablesModule} from 'angular-datatables';  
+import { HttpClientModule } from '@angular/common/http';
 import { AddVehicleEngineComponent } from './vehicle-engine/add-vehicle-engine/add-vehicle-engine.component';
 import { VehicleEngineListComponent } from './vehicle-engine/vehicle-engine-list/vehicle-engine-list.component';
 import { VehicleMakeListComponent } from './vehicle-make/vehicle-make-list/vehicle-make-list.component';
@@ -84,8 +83,7 @@ import { LogoutComponent } from './logout/logout.component';
     AppRoutingModule,
     FormsModule,  
     ReactiveFormsModule,  
-    HttpClientModule,  
-    DataTablesModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
