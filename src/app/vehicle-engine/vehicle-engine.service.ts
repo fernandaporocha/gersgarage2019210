@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';  
 import { Observable } from 'rxjs';  
+import { environment } from 'src/environments/environment';
   
 @Injectable({  
   providedIn: 'root'  
@@ -11,7 +12,7 @@ import { Observable } from 'rxjs';
 })
 export class VehicleEngineService {
 
-  private baseUrl = 'http://localhost:8080/vehicleEngine';
+  private baseUrl = `${environment.API_URL}vehicleEngine`;
 
   constructor(private http:HttpClient) { }
 

@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class VehicleService {
 
-  private baseUrl = 'http://localhost:8080/vehicle/';  
+  private baseUrl = `${environment.API_URL}vehicle/`;  
   
   constructor(private http:HttpClient) { }  
   
@@ -32,6 +33,6 @@ export class VehicleService {
   }
 
   getVehicleTypeList(): Observable<any> {  
-    return this.http.get('http://localhost:8080/vehicleType/');  
+    return this.http.get(`${environment.API_URL}vehicleType/`);  
   }
 }

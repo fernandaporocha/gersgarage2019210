@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookingService {
 
-  private baseUrl = 'http://localhost:8080/booking';  
+  private baseUrl = `${environment.API_URL}booking`;  
   
   constructor(private http:HttpClient) { }  
   
@@ -19,7 +20,6 @@ export class BookingService {
     console.log("Creating Booking")
     console.log(booking);
     return this.http.post(`${this.baseUrl}`, booking);
-    //return this.http.post(`${this.baseUrl}`, {bookingDTO : booking, bookingItemDTO: bookingItems});
   }
 
   deleteBooking(id: number): Observable<any> {  

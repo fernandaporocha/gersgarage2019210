@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class VehicleMakeService {
 
-  private baseUrl = 'http://localhost:8080/vehicleMake/';  
+  private baseUrl = `${environment.API_URL}vehicleMake/`;  
   
   constructor(private http:HttpClient) { }  
   

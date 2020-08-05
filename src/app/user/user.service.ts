@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from './User';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  private baseUrl = 'http://localhost:8080/user';
+  private baseUrl = `${environment.API_URL}user`;
 
   constructor(private http:HttpClient) { }
 
@@ -29,7 +30,7 @@ export class UserService {
 
   createContactInfor(contactInfo: object): Observable<any>{
     console.log('createContactInfor');
-    return this.http.post('http://localhost:8080/contactDetails', contactInfo);
+    return this.http.post(`${environment.API_URL}contactDetails`, contactInfo);
   }
 
   deleteUser(id: number): Observable<any> {  
@@ -41,7 +42,7 @@ export class UserService {
   }
 
   getContactInfo(id: number): Observable<any> {  
-    return this.http.get(`http://localhost:8080/contactDetails/${id}`);  
+    return this.http.get(`${environment.API_URL}contactDetails/${id}`);  
   }
 
   login(login: any): Observable<any> { 
