@@ -1,0 +1,85 @@
+<div class="card">
+    <h5 class="card-header"> Update User </h5>
+    <div class="card-body">
+  
+  
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="firstName">First Name</label>
+        <input type="text" class="form-control" id="firstName" required [(ngModel)]="user.firstName" name="firstname">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="lastName">Last Name</label>
+        <input type="text" class="form-control" id="lastName" required [(ngModel)]="user.lastName" name="lastname">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="name" class="col-sm-2 col-form-label">Username</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="name" placeholder="Username" required [(ngModel)]="user.name" name="name">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="email" class="col-sm-2 col-form-label">Email</label>
+      <div class="col-sm-10">
+        <input type="email" class="form-control" id="email" placeholder="Email" required [(ngModel)]="user.email" name="email">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="password" class="col-sm-2 col-form-label" >Password</label>
+      <div class="col-sm-10">
+        <input type="password" class="form-control" id="inputPassword3" placeholder="Password" required [(ngModel)]="user.password" name="password">
+      </div>
+    </div>
+    <div class="form-group row" *ngIf="loginService.showSideBar">
+      <div class="col-sm">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="active" [(ngModel)]="user.active" name="active">
+          <label class="form-check-label" for="active">
+            Is Active?
+          </label>
+        </div>
+      </div>
+      <div class="col-sm">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="admin" [(ngModel)]="user.admin" name="admin">
+          <label class="form-check-label" for="admin">
+            Is Admin?
+          </label>
+        </div>
+      </div>
+      <div class="col-sm">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="staff" [(ngModel)]="user.staff" name="staff">
+          <label class="form-check-label" for="staff">
+            Is Staff?
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="address">Address</label>
+      <input type="text" class="form-control" id="address" required [(ngModel)]="user.contactDetails.address" name="address">
+      <label for="email">Extra Address</label>
+      <input type="text" class="form-control" id="addressExtraInformation" required [(ngModel)]="user.contactDetails.addressExtraInformation" name="addressExtraInformation">
+      <label for="email">Phone</label>
+      <input type="text" class="form-control" id="phone" required [(ngModel)]="user.contactDetails.phone" name="phone">
+      <label for="email">Mobile Phone</label>
+      <input type="text" class="form-control" id="mobilePhone" required [(ngModel)]="user.contactDetails.mobilePhone" name="mobilePhone">
+      
+    </div>
+    <div class="form-group ml-auto">
+      <div class="text-right">
+        <button type="submit" class="btn-primary">Register</button>
+      </div>
+    </div>
+  </form>
+  <div [hidden]="!submitted">
+    <h4>User updated successfully!</h4>
+  </div>
+    </div>
+  
+  </div>
+  
+  
