@@ -1,0 +1,33 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <div class="row  title-row align-items-center justify-content-between">
+        <div class="col ">
+          <h4>Service Type List</h4>
+        </div>
+        <div class="col ">
+          <button (click)="add()" class="btn btn-add btn-success">Add</button>
+        </div>
+    </div>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th class="action-th">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let serviceType of serviceTypes | async">
+            <td>{{serviceType.name}}</td>
+            <td>{{serviceType.price | currency:"€" }}</td>
+            <td class="text-right">
+                <button (click)="deleteServiceType(serviceType.id)" class="btn btn-danger">Delete</button>
+                <button (click)="updateServiceType(serviceType.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
