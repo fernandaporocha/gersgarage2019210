@@ -125,6 +125,14 @@
               "devServerTarget": "gersgarage2019210:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "https://fernandaporocha.github.io/gersgarage2019210/",
+            "name": "Angular Schule Team",
+            "email": "team@angular.schule"
+          }
         }
       }
     }
