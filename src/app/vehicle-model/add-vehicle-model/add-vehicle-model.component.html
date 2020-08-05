@@ -1,0 +1,27 @@
+<div class="card">
+  <h5 class="card-header"> Create Vehicle Model </h5>
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group row">
+        <label for="name" class="col-sm-2 col-form-label">Name</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="name" placeholder="Name" required [(ngModel)]="vehicleModel.name"
+            name="name">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="make-select" class="col-sm-2 col-form-label">Make</label>
+        <div class="col-sm-10">
+          <select id="make-select" class="form-control" required name="makeId" [(ngModel)]="vehicleModel.makeId">
+            <option *ngFor="let make of makeList" [value]="make.id">{{make.name}}</option>
+        </select>
+        </div>
+      </div>
+      <div class="form-group ml-auto">
+        <div class="text-right">
+          <button type="submit" class=" btn btn-success">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
