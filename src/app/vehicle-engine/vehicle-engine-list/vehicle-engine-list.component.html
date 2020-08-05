@@ -1,0 +1,33 @@
+<div class="panel panel-default">   
+    <div class="panel-heading">
+        <div class="row  title-row align-items-center justify-content-between">
+            <div class="col ">
+              <h4>Vehicle Engine List</h4>
+            </div>
+            <div class="col ">
+              <button (click)="add()" class="btn btn-add btn-success">Add</button>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped">
+            <thead> 
+                <tr>  
+                    <th>Name</th>  
+                    <th class="action-th">Action</th>  
+                </tr>  
+            </thead>  
+            <tbody> 
+                <tr *ngFor="let vehicleengine of vehicleEngines | async">  
+                    <td>{{ vehicleengine.name }}</td>  
+                    <td class="text-right">
+                        <button (click)="deleteVehicleEngine(vehicleengine.id)" class='btn btn-danger'>Delete</button>   
+                        <button (click)="updateVehicleEngine(vehicleengine.id)" class='btn btn-info' style="margin-left: 10px">Update</button>  
+                    </td>  
+                </tr>   
+            </tbody><br>  
+        </table>  
+    </div>  
+</div>   
+      
+    
