@@ -13,7 +13,9 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "heroku-postbuild": "cd gergarage2019210 && npm install",
-    "postinstall": "ng build --aot -prod"
+    "postinstall": "ng build --aot -prod",
+    "pwa": "ng build --prod && http-server -p 4200 -c-1 dist/gersgarage2019210",
+    "deploygh": "ng deploy --base-href=https://fernandaporocha.github.io/gersgarage2019210/"
   },
   "private": true,
   "dependencies": {
