@@ -1,15 +1,21 @@
 <div class="panel panel-primary">
     <div class="panel-heading">
         <div class="row  title-row align-items-center justify-content-between">
-          <div class="col ">
+          <div class="col">
             <h4>Booking List </h4>
           </div>
-          <div class="col ">
+          <div class="col">
             <button (click)="add()" class="btn btn-add btn-success">Add</button>
           </div>
         </div>
     </div>
+    <div class="form-group row">
+      <div class="col col-lg-6">
+        <input type="search" class="form-control" [(ngModel)]="search" name="search" placeholder="Filter"> 
+      </div>           
+    </div>
     <div class="panel-body">
+        
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -22,7 +28,7 @@
                 </tr>
             </thead>
             <tbody> 
-                 <tr *ngFor="let booking of bookings | async">  
+                 <tr *ngFor="let booking of bookings | async | filter:search">  
                     <td>{{booking.customerName}}</td>
                     <td>{{booking.serviceName}}</td>
                     <td>{{booking.staffName}}</td>

@@ -3,6 +3,7 @@ import { BookingService } from '../booking.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Booking } from '../booking';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @Component({
   selector: 'app-booking-list',
@@ -12,7 +13,7 @@ import { Booking } from '../booking';
 export class BookingListComponent implements OnInit {
 
   constructor(private bookingService:BookingService, private router: Router) { }
-  
+  search;
   bookings: Observable<Booking[]>;  
   
   ngOnInit() {
