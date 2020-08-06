@@ -1,0 +1,6 @@
+{
+  "/api": {
+    "target": "http://fernandarocha2019210api.herokuapp.io",
+    "secure": false
+  }
+}
