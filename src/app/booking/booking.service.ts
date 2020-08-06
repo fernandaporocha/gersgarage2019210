@@ -17,8 +17,6 @@ export class BookingService {
   }
   
   createBooking(booking: object): Observable<object>{
-    console.log("Creating Booking")
-    console.log(booking);
     return this.http.post(`${this.baseUrl}`, booking);
   }
 
@@ -32,5 +30,9 @@ export class BookingService {
   
   updateBooking(value: any): Observable<Object> {  
     return this.http.put(`${this.baseUrl}`, value);  
+  }
+
+  searchBooking(value: any): Observable<any> {
+    return this.http.post(`${this.baseUrl}/search`, value);  
   }
 }

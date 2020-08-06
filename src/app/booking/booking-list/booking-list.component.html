@@ -12,7 +12,20 @@
     <div class="form-group row">
       <div class="col col-lg-6">
         <input type="search" class="form-control" [(ngModel)]="search" name="search" placeholder="Filter"> 
-      </div>           
+      </div>  
+      <div class="col-sm-4">
+        <input
+            [(ngModel)]="searchDate"
+            name="bookingDate"
+            placeholder="Enter date"
+            class="form-control"
+            bsDaterangepicker
+            (bsValueChange)="onDateChange()"
+            [daysDisabled]="[0]"/>
+      </div>
+      <div class="col">
+        <button (click)="search" class="btn btn-add btn-success">Search</button>
+      </div>       
     </div>
     <div class="panel-body">
         

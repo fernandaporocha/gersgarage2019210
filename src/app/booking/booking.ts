@@ -3,8 +3,6 @@ export class Booking {
 	customerId: number;
     staffId: number;
     vehicleId: number;
-    entryDate: Date;
-	collectionDate: Date;
 	bookingTypeId: number;
 	statusId: number;
 	serviceIds: number[];
