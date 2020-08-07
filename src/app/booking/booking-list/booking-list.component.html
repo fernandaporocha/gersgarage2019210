@@ -21,10 +21,11 @@
             class="form-control"
             bsDaterangepicker
             (bsValueChange)="onDateChange()"
-            [daysDisabled]="[0]"/>
+            [daysDisabled]="[0]"
+            autocomplete="off"/>
       </div>
       <div class="col">
-        <button (click)="search" class="btn btn-add btn-success">Search</button>
+        <button (click)="clear()" class="btn btn-add btn-success">Clear</button>
       </div>       
     </div>
     <div class="panel-body">

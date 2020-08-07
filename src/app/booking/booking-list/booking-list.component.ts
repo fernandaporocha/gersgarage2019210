@@ -46,6 +46,11 @@ export class BookingListComponent implements OnInit {
     this.router.navigate(['add-booking']);
   }
 
+  clear(){
+    this.searchDate = null;
+    this.reloadData();
+  }
+
   onDateChange(){ 
     this.searchByDate = new SearchByDate();
     this.searchByDate.minDate=this.searchDate[0];
