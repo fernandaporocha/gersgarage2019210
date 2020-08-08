@@ -22,25 +22,15 @@ export class UpdateBookingComponent implements OnInit {
   id:number;
   booking: Booking = new Booking();
   submitted = false;
-  customerId: number = null;
-  staffId: number = null;
   staffList: any = [];
-  vehicleId: number = null;
   vehicleList: any= [];
-  entryDate: Date = null;
-	collectionDate: Date = null;
-  bookingTypeId: number = null;
   bookingTypeList: any = [];
-  statusId: number = null;
   statusList: any = [];
-  serviceIds: number[] = [];
   serviceList: any = [];
-  itemIds: number[] = [];
   itemList: any = [];
   bookingDate: Date;
-  bookingItems: any = [];
   quantity: number = 0;
-  canRemove: boolean = false;
+  itemId: number = null;
 
 
   constructor(
@@ -59,7 +49,7 @@ export class UpdateBookingComponent implements OnInit {
       this.booking = new Booking();
       this.id = this.route.snapshot.params['id'];
       this.loadLists();
-      this.bookingDate = new Date(2013, 9, 22);
+      this.bookingDate = new Date(2020, 9, 22);
 
       this.bookingService.getBooking(this.id)
       .subscribe(data => {
@@ -83,8 +73,6 @@ export class UpdateBookingComponent implements OnInit {
     }
   
     onSubmit() {
-      this.booking.itemIds = this.itemIds;
-      this.booking.serviceIds = this.serviceIds;
       console.log(this.booking);
       this.bookingService.updateBooking(this.booking)
       .subscribe(data => console.log(data), error => console.log(error));
@@ -115,7 +103,6 @@ export class UpdateBookingComponent implements OnInit {
       this.itemService.getItemList().subscribe(data => {
         this.itemList = data;
       });
-      this.bookingItems=this.booking.bookingItems;
       
     }
 
@@ -123,24 +110,18 @@ export class UpdateBookingComponent implements OnInit {
       var i;
       for(i =0; i <this.itemList.length;i++){
         if(this.itemList[i].id==id){
-          console.log("achei");
           return this.itemList[i];
         }
       }
     }
 
     addItem(){
-      console.log("AddItem");
-      console.log(this.quantity);
-      console.log(this.itemIds);
-      let selectedItem = this.getItemById(this.itemIds);
-      //let item = new BookingItem(this.itemIds, this.getItemById(this.itemIds),this.quantity);
+      let selectedItem = this.getItemById(this.itemId);
       let item = new BookingItem(selectedItem.id, selectedItem.name,this.quantity);
-      console.log(item);
       
+      https://stackoverflow.com/questions/38225579/typescript-add-object-to-array-with-push
       this.booking.bookingItems.push(item);
-      console.log(this.bookingItems);
-      console.log("item");
+      console.log(this.booking.bookingItems);
 
     }
 
@@ -148,23 +129,10 @@ export class UpdateBookingComponent implements OnInit {
       console.log(itemId)
       console.log(quantity)
       this.quantity = quantity;
-      this.canRemove = true;
-      //document.getElementById('removeButton').enable=true; as HTMLElement;
-      //this.itemIds = itemId;
-    }
-
-    getItemByIndex(index:number){
-      var i;
-      for(i =0; i <this.bookingItems.length;i++){
-        if (i == index)
-          return this.bookingItems[i];
-      }
     }
 
     removeItem(index: number){
-      console.log("remove")
-      console.log(index)
-      //console.log(document.getElementById('selected-items'));
-      this.booking.bookingItems.splice(index,1);
+     //https://stackoverflow.com/questions/15292278/how-do-i-remove-an-array-item-in-typescript
+     this.booking.bookingItems.splice(index,1);
     }
 }
