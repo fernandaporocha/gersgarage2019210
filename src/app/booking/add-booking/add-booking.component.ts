@@ -56,6 +56,7 @@ export class AddBookingComponent implements OnInit {
 
     ngOnInit() {
       this.loadLists();
+      console.log(this.booking.serviceIds);
       console.log("minDate")
       console.log(this.minDate);
     }
@@ -129,6 +130,7 @@ export class AddBookingComponent implements OnInit {
       let item = new BookingItem(selectedItem.id, selectedItem.name,this.quantity);
       console.log(item);
       
+      //https://stackoverflow.com/questions/38225579/typescript-add-object-to-array-with-push
       this.bookingItems.push(item);
       console.log(this.bookingItems);
       console.log("item");
