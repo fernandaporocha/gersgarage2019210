@@ -26,9 +26,9 @@
             <td>{{bookingType.price | currency:"€" }}</td>
             <td>{{bookingType.doubledSlot}}</td>
             <td class="text-right">
-                <button (click)="deleteBookingType(bookingType.id)" class="btn btn-danger">Delete</button>
-                <button (click)="updateBookingType(bookingType.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
-            </td>
+                <button (click)="updateBookingType(bookingType.id)" class="btn btn-info">Update</button>
+                <button (click)="deleteBookingType(bookingType.id)" class="btn btn-danger"  style="margin-left: 10px">Delete</button>
+              </td>
           </tr>
         </tbody>
       </table>

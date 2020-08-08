@@ -21,8 +21,8 @@
                 <tr *ngFor="let vehicleengine of vehicleEngines | async">  
                     <td>{{ vehicleengine.name }}</td>  
                     <td class="text-right">
-                        <button (click)="deleteVehicleEngine(vehicleengine.id)" class='btn btn-danger'>Delete</button>   
-                        <button (click)="updateVehicleEngine(vehicleengine.id)" class='btn btn-info' style="margin-left: 10px">Update</button>  
+                        <button (click)="updateVehicleEngine(vehicleengine.id)" class='btn btn-info'>Update</button>
+                        <button (click)="deleteVehicleEngine(vehicleengine.id)" class='btn btn-danger' style="margin-left: 10px">Delete</button>  
                     </td>  
                 </tr>   
             </tbody><br>  

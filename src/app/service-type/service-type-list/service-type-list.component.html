@@ -23,9 +23,9 @@
             <td>{{serviceType.name}}</td>
             <td>{{serviceType.price | currency:"€" }}</td>
             <td class="text-right">
-                <button (click)="deleteServiceType(serviceType.id)" class="btn btn-danger">Delete</button>
-                <button (click)="updateServiceType(serviceType.id)" class="btn btn-info" style="margin-left: 10px">Update</button>
-            </td>
+                <button (click)="updateServiceType(serviceType.id)" class="btn btn-info">Update</button>
+                <button (click)="deleteServiceType(serviceType.id)" class="btn btn-danger" style="margin-left: 10px">Delete</button>
+              </td>
           </tr>
         </tbody>
       </table>
