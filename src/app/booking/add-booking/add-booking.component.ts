@@ -56,6 +56,8 @@ export class AddBookingComponent implements OnInit {
 
     ngOnInit() {
       this.loadLists();
+      this.bookingDate = new Date();
+      console.log(this.bookingDate);
       console.log(this.booking.serviceIds);
       console.log("minDate")
       console.log(this.minDate);
@@ -137,4 +139,7 @@ export class AddBookingComponent implements OnInit {
 
     }
 
+    addVehicle(){
+      this.router.navigate(['add-vehicle']);
+    }
 }
