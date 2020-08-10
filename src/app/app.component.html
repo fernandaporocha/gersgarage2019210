@@ -41,7 +41,7 @@
 <div  class="container-fluid w-75">  
   <nav class="navbar bg-dark navbar-dark">  
       <ul class="navbar-nav ml-auto">
-        <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link" >{{loginService.getUsername()}}</a></li>
+        <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/update-user/{{loginService.getUserId()}}" class="nav-link" >{{loginService.getUsername()}}</a></li>
         <li ><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
         <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link" >LogOut</a></li>
       </ul>  
