@@ -39,6 +39,8 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { ApiService } from './api.service';
+import { ListErrorsComponent } from './list-errors/list-errors.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +77,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     AddBookingComponent,
     UpdateBookingComponent,
     LoginComponent,
-    LogoutComponent
+    LogoutComponent,
+    ListErrorsComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -87,7 +90,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     HttpClientModule,
     Ng2SearchPipeModule
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
