@@ -14,12 +14,14 @@
             <thead>
                 <tr>
                 <th>Name</th>
+                <th>Type</th>
                 <th class="action-th">Actions</th>
                 </tr>
             </thead>
             <tbody> 
                  <tr *ngFor="let vehicleMake of vehicleMakes | async">  
-                    <td>{{vehicleMake.name}}</td>  
+                    <td>{{vehicleMake.name}}</td>
+                    <td>{{vehicleMake.vehicleTypeName}}</td>
                     <td class="text-right">
                         <button (click)="updateVehicleMake(vehicleMake.id)" class='btn btn-info'>Update</button>  
                         <button (click)="deleteVehicleMake(vehicleMake.id)" class='btn btn-danger' style="margin-left: 10px">Delete</button> 

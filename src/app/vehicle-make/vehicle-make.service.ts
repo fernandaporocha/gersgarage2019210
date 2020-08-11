@@ -15,6 +15,10 @@ export class VehicleMakeService {
   getVehicleMakeList(): Observable<any> {  
     return this.http.get(`${this.baseUrl}`);  
   }
+
+  getVehicleTypeList(): Observable<any> {  
+    return this.http.get(`${environment.API_URL}vehicleType/`);  
+  }
   
   createVehicleMake(vehicleMake: object): Observable<object>{
     return this.http.post(`${this.baseUrl}`, vehicleMake);

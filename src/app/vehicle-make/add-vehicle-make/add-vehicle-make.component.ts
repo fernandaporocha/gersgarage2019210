@@ -15,8 +15,11 @@ export class AddVehicleMakeComponent implements OnInit {
 
   vehicleMake: VehicleMake = new VehicleMake();
   submitted = false;
+  vehicleTypeId: number = null;
+  vehicleTypeList: any = [];
 
   ngOnInit(): void {
+    this.loadTypeList();
   }
 
   save(){
@@ -35,4 +38,10 @@ export class AddVehicleMakeComponent implements OnInit {
     this.router.navigate(['/view-vehicle-make']);
   }
 
+  loadTypeList(){
+    this.vehicleMakeService.getVehicleTypeList().subscribe(data => {
+      this.vehicleTypeList = data;
+      console.log(data)
+    });
+  }
 }

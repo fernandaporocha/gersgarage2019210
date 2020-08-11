@@ -13,8 +13,12 @@ export class UpdateVehicleMakeComponent implements OnInit {
   id:number;
   vehicleMake: VehicleMake;
   submitted = false;
+  vehicleTypeId: number = null;
+  vehicleTypeList: any = [];
 
-  constructor(private route: ActivatedRoute, private router: Router, 
+  constructor(
+    private route: ActivatedRoute, 
+    private router: Router, 
     private vehicleMakeService: VehicleMakeService) { }
 
   ngOnInit() {
@@ -22,6 +26,8 @@ export class UpdateVehicleMakeComponent implements OnInit {
 
     this.id = this.route.snapshot.params['id'];
     
+    this.loadTypeList();
+
     this.vehicleMakeService.getVehicleMake(this.id)
       .subscribe(data => {
         console.log(data)
@@ -44,6 +50,13 @@ export class UpdateVehicleMakeComponent implements OnInit {
 
   gotoList() {
     this.router.navigate(['/view-vehicle-make']);
+  }
+
+  loadTypeList(){
+    this.vehicleMakeService.getVehicleTypeList().subscribe(data => {
+      this.vehicleTypeList = data;
+      console.log(data)
+    });
   }
 
 }
