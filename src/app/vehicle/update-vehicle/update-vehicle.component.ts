@@ -65,9 +65,6 @@ export class UpdateVehicleComponent implements OnInit {
   }
 
   loadLists(){
-    this.vehicleMakeService.getVehicleMakeList().subscribe(data => {
-      this.makeList = data;
-    });
     this.vehicleEngineService.getVehicleEngineList().subscribe(data => {
       this.engineList = data;
     });
@@ -76,9 +73,21 @@ export class UpdateVehicleComponent implements OnInit {
     });
   }
 
-  onChange(makeId) {
+  onMakeChange(makeId) {
     this.loadModelList(makeId);
-}
+  }
+
+  onTypeChange(typeId) {
+    this.loadMakeList(typeId);
+  }
+
+  loadMakeList(id: number){
+    console.log('loadMakeList');
+    this.vehicleMakeService.getVehicleMakeListByVehicleTypeId(id).subscribe(data => {
+      console.log(data);
+      this.makeList = data;
+    });
+  }
 
   loadModelList(id: number){
     console.log('loadModelList');

@@ -30,7 +30,11 @@ export class VehicleMakeService {
   
   getVehicleMake(id: number): Observable<any> {  
     return this.http.get(`${this.baseUrl}/${id}`);  
-  }  
+  }
+
+  getVehicleMakeListByVehicleTypeId(id: number): Observable<any>{
+    return this.http.get(`${this.baseUrl}vehicleType/${id}`);    
+  }
   
   updateVehicleMake(value: any): Observable<Object> {  
     return this.http.put(`${this.baseUrl}`, value);  

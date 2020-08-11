@@ -6,6 +6,7 @@ import { VehicleModelService } from 'src/app/vehicle-model/vehicle-model.service
 import { VehicleMakeService } from 'src/app/vehicle-make/vehicle-make.service';
 import { VehicleEngineService } from 'src/app/vehicle-engine/vehicle-engine.service';
 
+
 @Component({
   selector: 'app-add-vehicle',
   templateUrl: './add-vehicle.component.html',
@@ -55,9 +56,6 @@ export class AddVehicleComponent implements OnInit {
   }
 
   loadLists(){
-    this.vehicleMakeService.getVehicleMakeList().subscribe(data => {
-      this.makeList = data;
-    });
     this.vehicleEngineService.getVehicleEngineList().subscribe(data => {
       this.engineList = data;
     });
@@ -66,9 +64,21 @@ export class AddVehicleComponent implements OnInit {
     });
   }
 
-  onChange(makeId) {
+  onMakeChange(makeId) {
     this.loadModelList(makeId);
-}
+  }
+
+  onTypeChange(typeId) {
+    this.loadMakeList(typeId);
+  }
+
+  loadMakeList(id: number){
+    console.log('loadMakeList');
+    this.vehicleMakeService.getVehicleMakeListByVehicleTypeId(id).subscribe(data => {
+      console.log(data);
+      this.makeList = data;
+    });
+  }
 
   loadModelList(id: number){
     console.log('loadModelList');
