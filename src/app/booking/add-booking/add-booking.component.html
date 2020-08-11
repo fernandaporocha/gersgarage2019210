@@ -63,7 +63,7 @@
         <div class="form-group row">
           <label for="service-select" class="col-sm-2 col-form-label">Required Services</label>
           <div class="col-sm-10">
-            <select id="service-select" class="form-control" required name="serviceIds" [(ngModel)]="serviceIds" multiple>
+            <select id="service-select" class="form-control" required name="serviceIds" [(ngModel)]="serviceIds" multiple data-toggle="tooltip" data-placement="top" title="CTRL + click to select multiple services">
               <option *ngFor="let service of serviceList" [value]="service.id">{{service.name}}</option>
             </select>
           </div>
