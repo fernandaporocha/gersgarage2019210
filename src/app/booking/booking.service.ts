@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
@@ -34,5 +34,16 @@ export class BookingService {
 
   searchBooking(value: any): Observable<any> {
     return this.http.post(`${this.baseUrl}/search`, value);  
+  }
+
+  getInvoice(id: number): Observable<HttpResponse<string>> {
+    let headers = new HttpHeaders();
+    headers = headers.append('Accept', 'text/pdf; charset=utf-8');
+ 
+    return this.http.get(`${this.baseUrl}/invoice/${id}`, {
+      headers: headers,
+      observe: 'response',
+      responseType: 'text'
+    });
   }
 }

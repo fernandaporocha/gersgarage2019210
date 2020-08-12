@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Booking } from '../booking';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import * as fileSaver from 'file-saver';
 
 @Component({
   selector: 'app-booking-list',
@@ -25,6 +26,7 @@ export class BookingListComponent implements OnInit {
   }
 
   reloadData(){
+    console.log("reload");
     console.log(this.bookingService.getBookingList());
     this.bookings = this.bookingService.getBookingList();
   }
@@ -56,5 +58,22 @@ export class BookingListComponent implements OnInit {
     this.searchByDate.minDate=this.searchDate[0];
     this.searchByDate.maxDate=this.searchDate[1];    
     this.bookings = this.bookingService.searchBooking(this.searchByDate);
+  }
+
+  invoice() {
+    console.log("first")
+    this.bookingService.getInvoice(1)
+      .subscribe(response => {
+        console.log("response")
+        console.log(response)
+        const filename = response.headers.get('filename');
+        
+        this.saveFile(response.body, filename);
+      });
+  }
+
+  saveFile(data: any, filename?: string) {
+    const blob = new Blob([data], {type: 'application/pdf; charset=utf-8'});
+    fileSaver.saveAs(blob, filename);
   }
 }

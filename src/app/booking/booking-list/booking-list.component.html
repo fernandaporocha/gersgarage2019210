@@ -52,7 +52,8 @@
                     <td>{{booking.status}}</td>
                     <td>{{booking.bookingDate}}</td>
                     <td>
-                        <button (click)="updateBooking(booking.id)" class='btn btn-info'>Update</button>  
+                        <button  *ngIf="booking.invoice" (click)="invoice(booking.id)" class='btn btn-success'>Invoice</button> 
+                        <button (click)="updateBooking(booking.id)" class='btn btn-info' style="margin-left: 10px">Update</button>  
                         <button (click)="deleteBooking(booking.id)" class='btn btn-danger'  style="margin-left: 10px">Delete</button> 
                       </td> 
                   </tr>   

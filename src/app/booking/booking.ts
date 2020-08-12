@@ -7,11 +7,13 @@ export class Booking {
 	statusId: number;
 	serviceIds: number[];
 	itemIds: number[];
-    bookingDate: Date = new Date();
+    bookingDate: Date;
     customerName: String;
     serviceName: String;
     staffName: String;
     status: String;
     comments: String;
     bookingItems: any[];
+    bsDate: string;
+    invoice: boolean;
 }
