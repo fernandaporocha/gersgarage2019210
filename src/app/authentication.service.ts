@@ -14,11 +14,9 @@ export class AuthenticationService {
   
   errors: Errors = {errors: {}};
 
-  constructor(private router: Router, private userService: UserService) { }
+  constructor(private router: Router, public userService: UserService) { }
 
-  authenticate(loginData) {
-  //authenticate(username: string, password: string) {
-    
+  authenticate(loginData) {    
     this.errors = {errors: {}};
     console.log("authenticate");
     console.log(loginData);
@@ -50,6 +48,7 @@ export class AuthenticationService {
       console.log("error");
       console.log(err)
       this.errors = err;
+      console.log(this.errors);
     })
 
   }
