@@ -36,7 +36,7 @@
       <div class="form-group row" *ngIf="loginService.showSideBar">
         <div class="col-sm">
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="isActive" [(ngModel)]="isActive" name="isActive">
+            <input class="form-check-input" type="checkbox" id="isActive" [(ngModel)]="user.active" name="isActive">
             <label class="form-check-label" for="isActive">
               Is Active?
             </label>
@@ -44,7 +44,7 @@
         </div>
         <div class="col-sm">
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="isAdmin" [(ngModel)]="isAdmin" name="isAdmin">
+            <input class="form-check-input" type="checkbox" id="isAdmin" [(ngModel)]="user.admin" name="isAdmin">
             <label class="form-check-label" for="isAdmin">
               Is Admin?
             </label>
@@ -52,7 +52,7 @@
         </div>
         <div class="col-sm">
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="isStaff" [(ngModel)]="isStaff" name="isStaff">
+            <input class="form-check-input" type="checkbox" id="isStaff" [(ngModel)]="user.staff" name="isStaff">
             <label class="form-check-label" for="isStaff">
               Is Staff?
             </label>
