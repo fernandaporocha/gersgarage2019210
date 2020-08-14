@@ -11,48 +11,45 @@ import { User } from '../User';
 })
 export class UserListComponent implements OnInit {
 
-  constructor(private userService:UserService,
-    private router: Router) { }
+  constructor(private userService: UserService,private router: Router) { }
 
   users: Observable<User[]>;
-  
+
   ngOnInit() {
     this.reloadData();
   }
 
-  reloadData(){
-    console.log("reloadData");
+  reloadData() {
     this.users = this.userService.getUserList();
   }
-    
-  deleteUser(id: number) {  
-    this.userService.deleteUser(id)  
-      .subscribe(  
-        data => {  
-          console.log(data);  
-          this.reloadData();  
-        },  
-        error => console.log(error));  
-  }  
-  
-  updateUser(id: number){  
+
+  deleteUser(id: number) {
+    this.userService.deleteUser(id)
+      .subscribe(
+        data => {
+          console.log(data);
+          this.reloadData();
+        },
+        error => console.log(error));
+  }
+
+  updateUser(id: number) {
     this.router.navigate(['update-user', id])
   }
 
-  add(){
+  add() {
     this.router.navigate(['add-user']);
   }
 
-  printRole(user:User){
-    if(user.admin && user.staff){
-        return "Admin/Staff";
-    }else if(user.admin){
-        return "Admin";
-    }else if(user.staff){
-        return "Staff";
-    }else{
-        return "Customer";
+  printRole(user: User) {
+    if (user.admin && user.staff) {
+      return "Admin/Staff";
+    } else if (user.admin) {
+      return "Admin";
+    } else if (user.staff) {
+      return "Staff";
+    } else {
+      return "Customer";
     }
-}
-
+  }
 }
