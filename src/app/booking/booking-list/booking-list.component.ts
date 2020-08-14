@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Booking } from '../booking';
 import * as fileSaver from 'file-saver';
+import { AuthenticationService } from 'src/app/authentication.service';
 
 @Component({
   selector: 'app-booking-list',
@@ -14,7 +15,7 @@ import * as fileSaver from 'file-saver';
 })
 export class BookingListComponent implements OnInit {
 
-  constructor(private bookingService:BookingService, private router: Router) { }
+  constructor(private bookingService:BookingService, private loginService:AuthenticationService, private router: Router) { }
   search;
   searchDate;
   bookings: Observable<Booking[]>;

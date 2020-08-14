@@ -52,9 +52,9 @@
                     <td>{{booking.status}}</td>
                     <td>{{booking.bookingDate}}</td>
                     <td>
-                        <button  *ngIf="booking.invoice" (click)="invoice(booking.id)" class='btn btn-success'>Invoice</button> 
-                        <button *ngIf="!loginService.isCustomer()"(click)="updateBooking(booking.id)" class='btn btn-info' style="margin-left: 10px">Update</button>  
-                        <button *ngIf="loginService.isAdmin()"(click)="deleteBooking(booking.id)" class='btn btn-danger'  style="margin-left: 10px">Delete</button> 
+                        <button *ngIf="booking.invoice" (click)="invoice(booking.id)" class='btn btn-success'>Invoice</button> 
+                        <button *ngIf="!loginService.isCustomer()" (click)="updateBooking(booking.id)" class='btn btn-info' style="margin-left: 10px">Update</button>
+                        <button *ngIf="loginService.isAdmin()" (click)="deleteBooking(booking.id)" class='btn btn-danger'  style="margin-left: 10px">Delete</button> 
                       </td> 
                   </tr>   
             </tbody><br>  

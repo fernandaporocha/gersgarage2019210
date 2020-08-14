@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { VehicleService } from '../vehicle.service';
 import { Vehicle } from '../vehicle';
 import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/authentication.service';
 
 
 @Component({
@@ -12,7 +13,9 @@ import { Router } from '@angular/router';
 })
 export class VehicleListComponent implements OnInit {
 
-  constructor(private vehicleService:VehicleService, private router: Router) { }
+  constructor(private vehicleService:VehicleService, 
+    private loginService:AuthenticationService, 
+    private router: Router) { }
   
   vehicles: Observable<Vehicle[]>;  
   
