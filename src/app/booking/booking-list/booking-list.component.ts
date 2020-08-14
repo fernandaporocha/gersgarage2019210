@@ -29,6 +29,7 @@ export class BookingListComponent implements OnInit {
     console.log("reload");
     console.log(this.bookingService.getBookingList());
     this.bookings = this.bookingService.getBookingList();
+    console.log(this.bookings[0]);
   }
 
   deleteBooking(id: number) {  
@@ -60,14 +61,10 @@ export class BookingListComponent implements OnInit {
     this.bookings = this.bookingService.searchBooking(this.searchByDate);
   }
 
-  invoice() {
-    console.log("first")
-    this.bookingService.getInvoice(1)
+  invoice(id: number) {
+    this.bookingService.getInvoice(id)
       .subscribe(response => {
-        console.log("response")
-        console.log(response)
-        const filename = response.headers.get('filename');
-        
+        const filename = "invoice" + id + ".pdf";
         this.saveFile(response.body, filename);
       });
   }
