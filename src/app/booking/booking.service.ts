@@ -36,14 +36,15 @@ export class BookingService {
     return this.http.post(`${this.baseUrl}/search`, value);  
   }
 
-  getInvoice(id: number): Observable<HttpResponse<string>> {
+  //https://stackoverflow.com/questions/52154874/angular-6-downloading-file-from-rest-api/52687792
+  getInvoice(id: number): Observable<HttpResponse<Blob>> {
     let headers = new HttpHeaders();
-    headers = headers.append('Accept', 'text/pdf; charset=utf-8');
- 
+    headers = headers.append('Accept', 'application/pdf; charset=utf-8');
+    
     return this.http.get(`${this.baseUrl}/invoice/${id}`, {
       headers: headers,
       observe: 'response',
-      responseType: 'text'
+      responseType: 'blob'
     });
   }
 }
