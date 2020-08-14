@@ -18,14 +18,9 @@ export class AuthenticationService {
 
   authenticate(loginData) {    
     this.errors = {errors: {}};
-    console.log("authenticate");
-    console.log(loginData);
     this.userService.login(loginData).subscribe(data => {
-      console.log(data);
       this.loggedInUser = data;
 
-      console.log("this.loggedInUser");
-      console.log(this.loggedInUser);
       console.log(this.loggedInUser.name);
   
       if (this.loggedInUser === null|| this.loggedInUser === undefined || this.loggedInUser.name === undefined){
@@ -36,7 +31,7 @@ export class AuthenticationService {
       }else{
         console.log("true");
         sessionStorage.setItem('username', this.loggedInUser.firstName + " " + this.loggedInUser.lastName);
-        sessionStorage.setItem('role', this.loggedInUser.admin?"admin":this.loggedInUser.staff?"staff":"customer");
+        sessionStorage.setItem('role', this.loggedInUser.admin?"admin":this.loggedInUser.staff?"mechanic":"customer");
         sessionStorage.setItem('showSideBar', this.loggedInUser.admin||this.loggedInUser.staff?"true":"false");
         sessionStorage.setItem('userId', this.loggedInUser.id.toString());
         this.showSideBar = (this.loggedInUser.admin||this.loggedInUser.staff)?true:false;
@@ -67,7 +62,7 @@ export class AuthenticationService {
 
   isUserLoggedIn() {
     console.log("isUserLoggedIn");
-    //console.log(sessionStorage.getItem('role'));
+    console.log("role " +sessionStorage.getItem('role'));
     //console.log(sessionStorage.getItem('showSideBar'));
     let user = sessionStorage.getItem('username')
     console.log(user)
@@ -90,12 +85,38 @@ export class AuthenticationService {
     return side;
   }
 
-  /*showSideBar() {
-    let show = sessionStorage.getItem('username')
-    console.log("showSideBar");
-    console.log(show === "true");
-    return (show === "true");
-  }*/
+  isAdmin(){
+    console.log("admin");
+    console.log(sessionStorage.getItem('role'))  
+    if (sessionStorage.getItem('role') === null){
+      return false;
+    }
+    let admin = sessionStorage.getItem("role")=="admin"?true: false; 
+    console.log(admin);  
+    return admin;
+  }
+
+  isCustomer(){
+    console.log("customer");
+    console.log(sessionStorage.getItem('role'))
+    if (sessionStorage.getItem('role') === null){
+      return false;
+    }
+    let customer = sessionStorage.getItem("role")=="customer"?true: false; 
+    console.log(customer);  
+    return customer;
+  }
+
+  isMechanic(){
+    console.log("-----mechanic");
+    console.log(sessionStorage.getItem('role'))
+    if (sessionStorage.getItem('role') === null){
+      return false;
+    }
+    let mechanic = sessionStorage.getItem("role")=="mechanic"?true: false; 
+    console.log(mechanic);  
+    return mechanic;
+  }
 
   logOut() {
     sessionStorage.removeItem('username')

@@ -30,7 +30,7 @@
                     <td>{{vehicle.year}}</td>
                     <td class="text-right">
                         <button (click)="updateVehicle(vehicle.id)" class='btn btn-info'>Update</button>  
-                        <button (click)="deleteVehicle(vehicle.id)" class='btn btn-danger' style="margin-left: 10px">Delete</button>
+                        <button *ngIf="loginService.isAdmin()" (click)="deleteVehicle(vehicle.id)" class='btn btn-danger' style="margin-left: 10px">Delete</button>
                       </td> 
                   </tr>   
             </tbody><br>  

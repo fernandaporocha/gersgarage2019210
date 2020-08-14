@@ -1,5 +1,5 @@
 <div class="d-flex" id="wrapper">
-  <div *ngIf="loginService.sideBar()">
+  <div *ngIf="loginService.isUserLoggedIn()">
   <!-- Sidebar -->
   <div class="border-right" id="sidebar-wrapper">
     <div class="sidebar-heading"> Ger's Garage </div>
@@ -12,27 +12,27 @@
       <div class="navbar-nav collapse" id="navbarToggleBooking">
         <div class="bg-light">
           <a class="list-group-item list-group-item-action sub" [routerLink]="['/view-booking']" routerLinkActive="active">Booking</a>
-          <a class="list-group-item list-group-item-action sub" [routerLink]="['/view-booking-status']" routerLinkActive="active">Status</a>
-          <a class="list-group-item list-group-item-action sub" [routerLink]="['/view-booking-type']" routerLinkActive="active">Type</a>
+          <a *ngIf="loginService.isAdmin()" class="list-group-item list-group-item-action sub" [routerLink]="['/view-booking-status']" routerLinkActive="active">Status</a>
+          <a *ngIf="loginService.isAdmin()"class="list-group-item list-group-item-action sub" [routerLink]="['/view-booking-type']" routerLinkActive="active">Type</a>
         </div>
       </div>
 
-      <button class="navbar-toggler dropdown-btn navbar-btn list-group-item list-group-item-action" type="button" data-toggle="collapse" data-target="#navbarToggleVehicle" 
+      <button *ngIf="!loginService.isMechanic()" class="navbar-toggler dropdown-btn navbar-btn list-group-item list-group-item-action" type="button" data-toggle="collapse" data-target="#navbarToggleVehicle" 
         aria-controls="navbarToggleVehicle" aria-expanded="false" aria-label="Toggle navigation">
         Vehicle
       </button>
-      <div class="navbar-nav collapse" id="navbarToggleVehicle">
+      <div *ngIf="!loginService.isMechanic()" class="navbar-nav collapse" id="navbarToggleVehicle">
         <div class="bg-light">
-          <a class="list-group-item list-group-item-action sub" [routerLink]="['/view-vehicle']" routerLinkActive="active">Vehicle</a>
-          <a class="list-group-item list-group-item-action sub" [routerLink]="['/view-vehicle-engine']" routerLinkActive="active">Engine</a>
-          <a class="list-group-item list-group-item-action sub" [routerLink]="['/view-vehicle-make']" routerLinkActive="active">Make</a>
-          <a class="list-group-item list-group-item-action sub" [routerLink]="['/view-vehicle-model']" routerLinkActive="active">Model</a>
+          <a *ngIf="!loginService.isMechanic()" class="list-group-item list-group-item-action sub" [routerLink]="['/view-vehicle']" routerLinkActive="active">Vehicle</a>
+          <a *ngIf="loginService.isAdmin()" class="list-group-item list-group-item-action sub" [routerLink]="['/view-vehicle-engine']" routerLinkActive="active">Engine</a>
+          <a *ngIf="loginService.isAdmin()" class="list-group-item list-group-item-action sub" [routerLink]="['/view-vehicle-make']" routerLinkActive="active">Make</a>
+          <a *ngIf="loginService.isAdmin()" class="list-group-item list-group-item-action sub" [routerLink]="['/view-vehicle-model']" routerLinkActive="active">Model</a>
         </div>
       </div>
      
-      <a class="list-group-item list-group-item-action" [routerLink]="['/view-item']" routerLinkActive="active">Item</a>
-      <a class="list-group-item list-group-item-action" [routerLink]="['/view-service-type']" routerLinkActive="active">Service</a>
-      <a class="list-group-item list-group-item-action" [routerLink]="['/view-user']" routerLinkActive="active">User</a>
+      <a *ngIf="loginService.isAdmin()" class="list-group-item list-group-item-action" [routerLink]="['/view-item']" routerLinkActive="active">Item</a>
+      <a *ngIf="loginService.isAdmin()" class="list-group-item list-group-item-action" [routerLink]="['/view-service-type']" routerLinkActive="active">Service</a>
+      <a *ngIf="loginService.isAdmin()" class="list-group-item list-group-item-action" [routerLink]="['/view-user']" routerLinkActive="active">User</a>
     </div>
   </div>
 </div>
