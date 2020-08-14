@@ -5,7 +5,6 @@ import { SearchByDate } from './../../search-by-date';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Booking } from '../booking';
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import * as fileSaver from 'file-saver';
 
 @Component({
@@ -56,9 +55,11 @@ export class BookingListComponent implements OnInit {
 
   onDateChange(){ 
     this.searchByDate = new SearchByDate();
-    this.searchByDate.minDate=this.searchDate[0];
-    this.searchByDate.maxDate=this.searchDate[1];    
-    this.bookings = this.bookingService.searchBooking(this.searchByDate);
+    if(this.searchDate!=null){
+      this.searchByDate.minDate=this.searchDate[0];
+      this.searchByDate.maxDate=this.searchDate[1];    
+      this.bookings = this.bookingService.searchBooking(this.searchByDate);
+    }
   }
 
   invoice(id: number) {
