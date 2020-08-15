@@ -16,7 +16,7 @@
       </div>
       <!-- https://valor-software.com/ngx-bootstrap/#/datepicker#min-max-->
       <!-- https://www.w3docs.com/snippets/html/how-to-disable-browser-autocomplete-and-autofill-on-html-form-and-input-fields.html-->  
-      <div class="col-sm-4">
+      <div *ngIf="loginService.isAdmin()" class="col-sm-4">
         <input
             [(ngModel)]="searchDate"
             name="bookingDate"
@@ -27,7 +27,7 @@
             [daysDisabled]="[0]"
             autocomplete="off"/>
       </div>
-      <div class="col">
+      <div *ngIf="loginService.isAdmin()" class="col">
         <button (click)="clear()" class="btn btn-add btn-success">Clear</button>
       </div>       
     </div>
