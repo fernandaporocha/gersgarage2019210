@@ -54,18 +54,15 @@ export class AddBookingComponent implements OnInit {
 
     ngOnInit() {
       this.loadLists();
-      this.bookingDate = new Date();
-      console.log(this.bookingDate);
       console.log(this.booking.serviceIds);
       console.log("minDate")
       console.log(this.minDate);
     }
   
     save() {
-
       console.log(this.booking);
       console.log(this.loginService.loggedInUser);
-      console.log(this.loginService.getLoggedUser());
+      console.log(this.booking.bookingDate);
       if (sessionStorage.getItem('role')==="customer"){
         this.booking.customerId= parseInt(sessionStorage.getItem("userId"));
       }
