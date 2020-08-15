@@ -28,9 +28,13 @@ export class BookingListComponent implements OnInit {
   }
 
   reloadData(){
-    console.log("reload");
-    console.log(this.bookingService.getBookingList());
-    this.bookings = this.bookingService.getBookingList();
+    if (this.loginService.isAdmin()){
+      console.log("data to admin")
+      this.bookings = this.bookingService.getBookingList();
+    }else if(this.loginService.isCustomer()){
+      console.log("data to customer")
+      this.bookings = this.bookingService.getBookingListByCustomer(parseInt(this.loginService.getUserId()));
+    }
     console.log(this.bookings[0]);
   }
 
