@@ -25,8 +25,6 @@ export class AddBookingComponent implements OnInit {
   staffList: any = [];
   vehicleId: number = null;
   vehicleList: any= [];
-  entryDate: Date = null;
-	collectionDate: Date = null;
   bookingTypeId: number = null;
   bookingTypeList: any = [];
   statusId: number = null;
