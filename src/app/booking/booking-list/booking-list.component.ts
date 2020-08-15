@@ -15,7 +15,9 @@ import { AuthenticationService } from 'src/app/authentication.service';
 })
 export class BookingListComponent implements OnInit {
 
-  constructor(private bookingService:BookingService, private loginService:AuthenticationService, private router: Router) { }
+  constructor(private bookingService:BookingService, 
+    private loginService:AuthenticationService, 
+    private router: Router) { }
   search;
   searchDate;
   bookings: Observable<Booking[]>;

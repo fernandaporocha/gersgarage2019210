@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { BookingListComponent } from '../booking-list/booking-list.component';
 import { Booking } from '../booking'
 import { BookingService } from '../booking.service'
 import { UserService } from 'src/app/user/user.service';
@@ -10,8 +9,7 @@ import { ServiceTypeService } from 'src/app/service-type/service-type.service';
 import { ItemService } from 'src/app/item/item.service';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/authentication.service';
-import { BookingItem } from 'src/app/booking-item'
-import { moment } from 'ngx-bootstrap/chronos/test/chain';
+import { BookingItem } from '../booking-item'
 
 @Component({
   selector: 'app-add-booking',

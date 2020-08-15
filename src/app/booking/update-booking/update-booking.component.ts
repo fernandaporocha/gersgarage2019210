@@ -9,8 +9,7 @@ import { ServiceTypeService } from 'src/app/service-type/service-type.service';
 import { ItemService } from 'src/app/item/item.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthenticationService } from 'src/app/authentication.service';
-import { BookingItem } from 'src/app/booking-item';
-import { timers } from 'jquery';
+import { BookingItem } from '../booking-item';
 
 @Component({
   selector: 'app-update-booking',
