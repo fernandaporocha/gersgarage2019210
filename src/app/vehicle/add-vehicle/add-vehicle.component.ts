@@ -77,6 +77,7 @@ export class AddVehicleComponent implements OnInit {
     this.vehicleMakeService.getVehicleMakeListByVehicleTypeId(id).subscribe(data => {
       console.log(data);
       this.makeList = data;
+      this.loadModelList(this.makeList[0].id);
     });
   }
 

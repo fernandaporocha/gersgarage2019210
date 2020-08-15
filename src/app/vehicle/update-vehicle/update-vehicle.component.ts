@@ -38,12 +38,11 @@ export class UpdateVehicleComponent implements OnInit {
 
     this.id = this.route.snapshot.params['id'];
 
-    this.loadLists();
-    
     this.vehicleService.getVehicle(this.id)
       .subscribe(data => {
         console.log(data)
         this.vehicle = data;
+        this.loadLists();
       }, error => console.log(error));
   }
 
@@ -71,6 +70,14 @@ export class UpdateVehicleComponent implements OnInit {
     this.vehicleService.getVehicleTypeList().subscribe(data => {
       this.typeList = data;
     });
+    this.vehicleMakeService.getVehicleMakeListByVehicleTypeId(this.vehicle.typeId).subscribe(data => {
+      console.log(data);
+      this.makeList = data;
+    });
+    this.vehicleModelService.getVehicleModelListByMakeId(this.vehicle.makeId).subscribe(data => {
+      console.log(data);
+      this.modelList = data;
+    });
   }
 
   onMakeChange(makeId) {
@@ -86,6 +93,7 @@ export class UpdateVehicleComponent implements OnInit {
     this.vehicleMakeService.getVehicleMakeListByVehicleTypeId(id).subscribe(data => {
       console.log(data);
       this.makeList = data;
+      this.loadModelList(this.makeList[0].id);
     });
   }
 
