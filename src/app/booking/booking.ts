@@ -1,3 +1,5 @@
+import { BookingItem } from './booking-item';
+
 export class Booking {
     id: number;
 	customerId: number;
@@ -13,7 +15,7 @@ export class Booking {
     staffName: String;
     status: String;
     comments: String;
-    bookingItems: any[];
+    bookingItems: BookingItem[];
     bsDate: string;
     invoice: boolean;
 }

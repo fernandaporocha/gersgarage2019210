@@ -115,13 +115,14 @@ export class UpdateBookingComponent implements OnInit {
     }
 
     addItem(){
-      let selectedItem = this.getItemById(this.itemId);
-      let item = new BookingItem(selectedItem.id, selectedItem.name,this.quantity);
-      
-      https://stackoverflow.com/questions/38225579/typescript-add-object-to-array-with-push
-      this.booking.bookingItems.push(item);
-      console.log(this.booking.bookingItems);
-
+      if(this.quantity>0){
+        let selectedItem = this.getItemById(this.itemId);
+        let item = new BookingItem(selectedItem.id, selectedItem.name,this.quantity);
+        
+        https://stackoverflow.com/questions/38225579/typescript-add-object-to-array-with-push
+        this.booking.bookingItems.push(item);
+        console.log(this.booking.bookingItems);
+      }
     }
 
     fillItem(itemId: number, quantity: number){
