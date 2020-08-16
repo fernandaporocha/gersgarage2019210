@@ -4,7 +4,7 @@
           <div class="col">
             <h4>Booking List </h4>
           </div>
-          <div class="col" *ngIf="!loginService.isCustomer()">
+          <div class="col" *ngIf="!loginService.isMechanic()">
             <button (click)="add()" class="btn btn-add btn-success">Add</button>
           </div>
         </div>
