@@ -33,7 +33,6 @@ export class AddBookingComponent implements OnInit {
   serviceList: any = [];
   itemIds: number[] = [];
   itemList: any = [];
-  bookingDate: Date;
   minDate: Date = new Date();
   bookingItems: any = [];
   quantity: number = 0;

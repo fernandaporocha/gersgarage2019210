@@ -54,8 +54,12 @@ export class AddUserComponent implements OnInit {
   }
 
   onSubmit() {
-    this.submitted = true;
-    this.save();    
+    if(this.user.name!=null){
+      this.save();
+      console.log("salvou");
+    }else{
+      console.log("nao salvou")
+    }  
   }
 
   gotoList() {

@@ -15,6 +15,14 @@ export class BookingService {
   getBookingList(): Observable<any> {  
     return this.http.get(`${this.baseUrl}`);  
   }
+
+  getBookingListByCustomer(id:number): Observable<any> {  
+    return this.http.get(`${this.baseUrl}/customerId/${id}`);  
+  }
+
+  getBookingListByMechanic(id:number): Observable<any> {  
+    return this.http.get(`${this.baseUrl}/mechanicId/${id}`);  
+  }
   
   createBooking(booking: object): Observable<object>{
     return this.http.post(`${this.baseUrl}`, booking);

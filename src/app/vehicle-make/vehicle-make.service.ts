@@ -25,7 +25,7 @@ export class VehicleMakeService {
   }
 
   deleteVehicleMake(id: number): Observable<any> {  
-    return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });  
+    return this.http.delete(`${this.baseUrl}/${id}`);  
   }  
   
   getVehicleMake(id: number): Observable<any> {  
@@ -36,7 +36,7 @@ export class VehicleMakeService {
     return this.http.get(`${this.baseUrl}vehicleType/${id}`);    
   }
   
-  updateVehicleMake(value: any): Observable<Object> {  
-    return this.http.put(`${this.baseUrl}`, value);  
+  updateVehicleMake(vehicleMake: any): Observable<Object> {  
+    return this.http.put(`${this.baseUrl}`, vehicleMake);  
   }
 }

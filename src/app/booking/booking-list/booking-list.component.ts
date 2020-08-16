@@ -34,6 +34,9 @@ export class BookingListComponent implements OnInit {
     }else if(this.loginService.isCustomer()){
       console.log("data to customer")
       this.bookings = this.bookingService.getBookingListByCustomer(parseInt(this.loginService.getUserId()));
+    }else if(this.loginService.isMechanic){
+      console.log("data to mechanic")
+      this.bookings = this.bookingService.getBookingListByMechanic(parseInt(this.loginService.getUserId()));
     }
     console.log(this.bookings[0]);
   }

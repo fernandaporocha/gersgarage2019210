@@ -27,9 +27,9 @@ export class UpdateBookingComponent implements OnInit {
   statusList: any = [];
   serviceList: any = [];
   itemList: any = [];
-  bookingDate: Date;
   quantity: number = 0;
   itemId: number = null;
+  bookingDate: Date;
 
 
   constructor(
@@ -48,22 +48,19 @@ export class UpdateBookingComponent implements OnInit {
       this.booking = new Booking();
       this.id = this.route.snapshot.params['id'];
       this.loadLists();
-      this.bookingDate = new Date(2020, 9, 22);
 
       this.bookingService.getBooking(this.id)
       .subscribe(data => {
         console.log(data)
         this.booking = data;
       }, error => console.log(error));
-
-      this.bookingDate = new Date(2013, 9, 19);
-      this.booking.bookingDate = this.bookingDate;
     }
 
     updateBooking() {
       console.log("update");
       console.log(this.booking);
-      console.log(this.bookingDate);
+      
+      console.log(this.booking.bookingDate);
       this.bookingService.updateBooking(this.booking)
         .subscribe(data => console.log(data), error => console.log(error));
       this.booking = new Booking();
@@ -72,9 +69,9 @@ export class UpdateBookingComponent implements OnInit {
     }
   
     onSubmit() {
+      console.log("submit");
       console.log(this.booking);
-      this.bookingService.updateBooking(this.booking)
-      .subscribe(data => console.log(data), error => console.log(error));
+      console.log(this.booking.bookingDate)
       this.submitted = true;
       this.updateBooking();    
     }

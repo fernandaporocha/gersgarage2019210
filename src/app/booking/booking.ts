@@ -16,6 +16,5 @@ export class Booking {
     status: String;
     comments: String;
     bookingItems: BookingItem[];
-    bsDate: string;
     invoice: boolean;
 }
