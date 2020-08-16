@@ -19,16 +19,4 @@ export class AppComponent {
       }
     });
   }
-
-  ngOnInit() {
-        //Toggle Click Function
-    $("#menu-toggle").click(function(e) {
-    e.preventDefault();
-    $("#wrapper").toggleClass("toggled");
-    });
-  }
-
-
-
-
 }
