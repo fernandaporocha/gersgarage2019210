@@ -16,7 +16,7 @@ import { AuthenticationService } from 'src/app/authentication.service';
 export class BookingListComponent implements OnInit {
 
   constructor(private bookingService:BookingService, 
-    private loginService:AuthenticationService, 
+    public loginService:AuthenticationService, 
     private router: Router) { }
   search;
   searchDate;
